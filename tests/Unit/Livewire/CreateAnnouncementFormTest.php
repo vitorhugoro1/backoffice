@@ -14,13 +14,6 @@ class CreateAnnouncementFormTest extends TestCase
 {
     use WithFaker, DatabaseMigrations;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        // code
-    }
-
     /** @test */
     public function canCreateAnnouncement()
     {
