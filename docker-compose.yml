@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  database:
+    image: postgres:10.3
+    volumes:
+      - pgsql-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=sandbox
+      - POSTGRES_DB=sandbox
+      - POSTGRES_USER=sandbox
+
+volumes:
+  pgsql-data:
+    driver: local
