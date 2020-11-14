@@ -21,7 +21,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($announcements as $announcement)
+                        @forelse ($announcements as $announcement)
                         <tr>
                             <td class="px-6 py-4 whitespace-no-wrap">
                                 <div class="font-semibold">
@@ -39,10 +39,17 @@
                                     class="text-indigo-600 hover:text-indigo-900 mr-2">View</a>
                                 <a href="{{ route('announcements.edit', $announcement->id) }}"
                                     class="text-indigo-600 hover:text-indigo-900 mr-2">Edit</a>
-                                <a wire:click="openDeleteModal({{ $announcement->id }})" href="#" class="text-red-600 hover:text-red-900">Delete</a>
+                                <a wire:click="openDeleteModal({{ $announcement->id }})" href="#"
+                                    class="text-red-600 hover:text-red-900">Delete</a>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="4" class="px-6 py-4 whitespace-no-wrap">
+                                {{ __('Not has Announcements.') }}
+                            </td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
 
