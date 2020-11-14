@@ -16,10 +16,10 @@ class CreateAnnouncementForm extends Component
 
     public function createAnnouncement(CreateAnnouncement $creator)
     {
-        $announcement = $creator->create(
+        $creator->create(
             $this->state
         );
 
-        return redirect()->route('announcements.edit', $announcement->id);
+        return redirect()->route('announcements.index');
     }
 }
