@@ -25,6 +25,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('update-announcement', fn ($user, $announcement) => $announcement->user_id === $user->id);
+        Gate::define('view-announcement', fn ($user, $announcement) => $announcement->user_id === $user->id);
     }
 }

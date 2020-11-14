@@ -35,6 +35,8 @@ class AnnouncementController extends Controller
      */
     public function show(Announcement $announcement)
     {
+        $this->authorize('view-announcement', $announcement);
+
         return view('announcements.show', [
             'announcement' => $announcement
         ]);
@@ -48,6 +50,8 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
+        $this->authorize('update-announcement', $announcement);
+
         return view('announcements.edit', [
             'announcement' => $announcement
         ]);
