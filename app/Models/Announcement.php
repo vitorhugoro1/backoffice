@@ -10,6 +10,7 @@ class Announcement extends Model
     use HasFactory;
 
     protected $casts = [
+        'user_id' => 'int',
         'start_at' => 'date:Y-m-d',
         'expiration_at' => 'date:Y-m-d'
     ];
